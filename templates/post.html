@@ -53,16 +53,16 @@
   <aside>
     {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = section.extra.toc %}{% endif %}
     {% if show_toc and page.toc %}
-    <nav>
+    <nav id="toc"">
       <ul>
         {% for h2 in page.toc %}
         <li>
-          <a class="h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+          <a class="h2" id="h2" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
           {% if h2.children %}
           <ul>
             {% for h3 in h2.children %}
             <li>
-              <a class="h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+              <a class="h3" id="h3" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
             </li>
             {% endfor %}
           </ul>

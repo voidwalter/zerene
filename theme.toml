@@ -6,9 +6,3 @@ homepage = "https://github.com/voidwalter/zerene"
 min_version = "0.22.1"
 demo = "https://voidwalter.github.io"
 #
-
-[author]
-name = "isunjn"
-homepage = "https://github.com/isunjn"
-
-[extra]

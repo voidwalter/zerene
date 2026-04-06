@@ -14,7 +14,7 @@ body {
   font-size: var(--font-size);
   line-height: var(--line-height);
   overflow-y: scroll;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -523,6 +523,120 @@ body.prose-page {
       -webkit-tap-highlight-color: transparent;
     }
   }
+
+  .collection.timeline {
+  display: grid;
+  grid-template-columns: 32px 1fr auto 1fr auto;
+  align-items: center;
+  gap: 0;
+  padding: 0.85rem 0;
+  margin: 0;
+  border: none;
+  border-bottom: 0.5px solid var(--border-color);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.collection.timeline:last-child {
+  border-bottom: none;
+}
+
+.tl-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tl-line {
+  border-top: 1.5px dotted var(--border-color);
+  margin: 0 10px;
+}
+
+.tl-mid {
+  flex-shrink: 0;
+  max-width: 260px;
+  padding: 0 4px;
+}
+
+.tl-mid .title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.tl-mid .subtitle {
+  font-size: 0.8rem;
+  color: var(--text-color);
+  opacity: 0.6;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.tl-mid .content {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 0.4rem;
+  line-height: 1.6;
+}
+
+.tl-date {
+  font-size: 0.75rem;
+  color: var(--text-color);
+  opacity: 0.55;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* active — green pulse */
+.dot-active {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1D9E75;
+  position: relative;
+}
+
+.dot-active::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: #1D9E75;
+  opacity: 0.25;
+  animation: tl-pulse 1.8s ease-out infinite;
+}
+
+@keyframes tl-pulse {
+  0%   { transform: scale(1);   opacity: 0.25; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* planned — hollow ring */
+.dot-planned {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-color);
+  background: transparent;
+}
+
+/* done — checkmark */
+.dot-done {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot-done svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text-color);
+  opacity: 0.4;
+}
 
   .collection.card {
     margin: 3em 0;

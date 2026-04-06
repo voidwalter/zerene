@@ -1,3 +1,39 @@
+{% macro timeline(item) %}
+<blockquote class="collection timeline{% if item.status is defined %} status-{{ item.status }}{% endif %}">
+  <div class="tl-status">
+    {% if item.status is defined and item.status == "active" %}
+      <div class="dot-active"></div>
+    {% elif item.status is defined and item.status == "done" %}
+      <div class="dot-done">
+        <svg viewBox="0 0 14 14" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="2,7 5.5,10.5 12,3.5"/>
+        </svg>
+      </div>
+    {% else %}
+      <div class="dot-planned"></div>
+    {% endif %}
+  </div>
+  <div class="tl-line"></div>
+  <div class="tl-mid">
+    {% if item.link is defined and item.link %}
+    <a class="title" href="{{ item.link }}" target="_blank" rel="noreferrer noopener">{{ item.title }}</a>
+    {% else %}
+    <div class="title">{{ item.title }}</div>
+    {% endif %}
+    {% if item.subtitle is defined and item.subtitle %}
+    <div class="subtitle">{{ item.subtitle | trim | markdown(inline=true) | safe }}</div>
+    {% endif %}
+    {% if item.content is defined and item.content %}
+    <div class="content">{{ item.content | trim | markdown | safe }}</div>
+    {% endif %}
+  </div>
+  <div class="tl-line"></div>
+  {% if item.date is defined and item.date %}
+  <div class="tl-date">{{ item.date }}</div>
+  {% endif %}
+</blockquote>
+{% endmacro %}
+
 {% macro card(item) %}
 <blockquote class="collection card{% if item.featured %} featured{% endif %}">
   <div class="meta">
@@ -28,7 +64,6 @@
   {% endif %}
 </blockquote>
 {% endmacro %}
-
 
 {% macro card_simple(item) %}
 <blockquote class="collection card-simple{% if item.featured %} featured{% endif %}">

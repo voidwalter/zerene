@@ -1,0 +1,10 @@
+<span id="live-age"></span>
+<script>
+  const birth = new Date('{{ birth_date }}');
+  function updateAge() {
+    const age = (new Date() - birth) / (1000 * 60 * 60 * 24 * 365.25);
+    document.getElementById('live-age').textContent = age.toFixed(8);
+  }
+  updateAge();
+  setInterval(updateAge, 100);
+</script>

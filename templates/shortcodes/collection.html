@@ -4,7 +4,9 @@
 
 <section class="collection-wrapper">
 {% for item in data.collection %}
-  {% if item.type == "card" %}
+  {% if item.type == "timeline" %}
+    {{ marcos::timeline(item=item) }}
+  {% elif item.type == "card" %}
     {{ marcos::card(item=item) }}
   {% elif item.type == "card_simple" %}
     {{ marcos::card_simple(item=item) }}
