@@ -62,7 +62,7 @@
   }
 
 #name {
-  font-size: 33px;
+  font-size: 53px;
   font-family: 'Fira Code', monospace;
   font-weight: 700;
   display: inline-flex;
@@ -73,37 +73,15 @@
   animation: wave 1.6s ease-in-out infinite;
 }
 
-@keyframes wave {
-  0%, 100% { transform: translateY(0); }
-  40%       { transform: translateY(-8px); }
-  60%       { transform: translateY(-4px); }
-}
-
-#links a.title,
-#links .left a:first-child {
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    text-decoration: none;
-    color: var(--text-color);
-  }
-
-#left a {
-    text-decoration: none;
-    font-family: 'Fira Code', monospace;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--primary-color);
-    padding: 5px 10px;
-    border-radius: 6px;
-    transition: background 0.15s;
-}
-
-#links a:hover {
-    background: var(--primary-decoration-color);
-    text-decoration: none;
-}
+<!-- @keyframes wave { -->
+<!--   0%, 100% { transform: translateY(0); } -->
+<!--   40%       { transform: translateY(-8px); } -->
+<!--   60%       { transform: translateY(-4px); } -->
+<!-- } -->
 </style>
+
+
+<!--To make the name/text wave -->
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
